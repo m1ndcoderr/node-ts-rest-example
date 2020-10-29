@@ -19,7 +19,7 @@ export class StudentController {
   }
 
   private getStudent(req: IncomingMessage, res: ServerResponse): void {
-    if (req.method === 'GET' && this.isUrlContainsId(req.url)) {
+    if (req.method === 'GET' && this.isUrlContainsId(req.url!)) {
       try {
         return res
           .writeHead(200, { 'Content-Type': 'application/json' })
@@ -65,7 +65,7 @@ export class StudentController {
     req: IncomingMessage,
     res: ServerResponse
   ): Promise<void> {
-    if (req.method === 'PUT' && this.isUrlContainsId(req.url)) {
+    if (req.method === 'PUT' && this.isUrlContainsId(req.url!)) {
       try {
         const data = await getRequestBody(req)
         this.studentService.updateStudent({
@@ -80,7 +80,7 @@ export class StudentController {
   }
 
   private deleteStudent(req: IncomingMessage, res: ServerResponse): void {
-    if (req.method === 'DELETE' && this.isUrlContainsId(req.url)) {
+    if (req.method === 'DELETE' && this.isUrlContainsId(req.url!)) {
       try {
         this.studentService.deleteStudent({ id: getIdFromUrl(req.url!) })
         return res.writeHead(200, { 'Content-Type': 'application/json' }).end()

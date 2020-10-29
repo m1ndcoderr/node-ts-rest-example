@@ -12,7 +12,7 @@ export class Student extends BaseEntity {
     id?: number
     performance?: StudentPerformance
   }) {
-    super(data.id)
+    super(data.id!)
     this.fullname = data.fullname
     this.dateOfBirth = new Date(data.dateOfBirth)
     this.performance = data.performance
