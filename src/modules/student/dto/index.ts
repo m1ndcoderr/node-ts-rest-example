@@ -1,0 +1,5 @@
+export * from './create-student.dto'
+export * from './delete-student.dto'
+export * from './get-student.dto'
+export * from './list-students.dto'
+export * from './update-student.dto'
